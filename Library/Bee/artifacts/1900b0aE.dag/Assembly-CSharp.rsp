@@ -446,7 +446,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.1.13f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/Enemy.cs"
 "Assets/Entity.cs"
-"Assets/PlayerAnimationEvents.cs"
+"Assets/Entity_AnimationEvents.cs"
 -langversion:9.0
 /deterministic
 /optimize+

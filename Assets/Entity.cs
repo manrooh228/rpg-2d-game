@@ -15,9 +15,11 @@ public class Entity : MonoBehaviour
     [Header("Movement Details")]
     [SerializeField] protected float moveSpeed = 3.5f;
     [SerializeField] private float jumpForce = 8;
-    protected int facingDir = -1;
+    [SerializeField] protected int facingDir = 1;
+    
     private float xInput;
-    private bool canMove;
+    private bool facingRight = true;
+    protected bool canMove = true;
     private bool canJump;
 
     [Header("Collision Details")]
@@ -36,7 +38,7 @@ public class Entity : MonoBehaviour
     {
         HandleCollision();
         HandleInput();
-        HandleMovement();
+        HandleMovement(xInput);
         HandleAnimations();
         FlipAnimations();
     }
@@ -63,12 +65,25 @@ public class Entity : MonoBehaviour
         canJump = enable;
     }
 
-    private void FlipAnimations()
+    protected void FlipAnimations()
     {
-        if (rb.linearVelocityX < 0)
-            transform.rotation = new Quaternion(0, 180, 0, 0);
-        if (rb.linearVelocityX > 0)
-            transform.rotation = new Quaternion(0, 0, 0, 0);
+        if (rb.linearVelocityX < 0 && facingRight == true)
+        {
+            Flip();
+        }
+        else
+        if (rb.linearVelocityX > 0 && facingRight == false)
+        {
+            Flip();
+        }
+            
+    }
+
+    private void Flip()
+    {
+        transform.Rotate(0, 180, 0);
+        facingRight = !facingRight;
+        facingDir = facingDir * -1;
     }
 
     protected virtual void HandleAnimations()
@@ -86,11 +101,11 @@ public class Entity : MonoBehaviour
             TryToJump();
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
-            TryToAttack();
+            HandleAttack();
     }
 
 
-    protected virtual void TryToAttack()
+    protected virtual void HandleAttack()
     {
         if (isGrounded)
         {
@@ -104,10 +119,10 @@ public class Entity : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.y, jumpForce);
     }
 
-    protected virtual void HandleMovement()
+    protected virtual void HandleMovement(float xDirection)
     {
         if (canMove)
-            rb.linearVelocity = new Vector2(xInput * moveSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(xDirection * moveSpeed, rb.linearVelocity.y);
         else
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
     }
