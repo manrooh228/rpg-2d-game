@@ -278,7 +278,7 @@ Transform:
   m_GameObject: {fileID: 93999075}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.99, y: -0.21, z: 0}
+  m_LocalPosition: {x: 1.38, y: -0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 586996889}
   - component: {fileID: 586996891}
   - component: {fileID: 586996890}
+  - component: {fileID: 586996892}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -531,6 +532,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &586996892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586996888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d31ca771b900e439fdf1148c2ff945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,6 +1081,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2e9cc17e1614c46a433f7e550146f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
+  damageFeedbackMaterial: {fileID: 2100000, guid: c89f6480fa38cb945bcd52178dc4e567, type: 2}
+  damageFeedbackDuration: 0.2
   attackRadius: 1
   attackPoint: {fileID: 93999076}
   whatIsTarget:
@@ -1075,8 +1092,7 @@ MonoBehaviour:
     m_Bits: 256
   moveSpeed: 2
   jumpForce: 8
-  facingDir: -1
-  facingRight: 0
+  facingDir: 1
   groundCheckDistance: 1.3
   whatIsGround:
     serializedVersion: 2
@@ -1247,7 +1263,7 @@ Transform:
   m_GameObject: {fileID: 1475573710}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.12, y: -1.14, z: 0}
+  m_LocalPosition: {x: 4.8, y: -1.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1331,6 +1347,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8147738292c33b140a4876e20e3ee9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 1000
+  currentHealth: 0
+  damageFeedbackMaterial: {fileID: 2100000, guid: c89f6480fa38cb945bcd52178dc4e567, type: 2}
+  damageFeedbackDuration: 0.2
   attackRadius: 1
   attackPoint: {fileID: 1189975127}
   whatIsTarget:
@@ -1339,7 +1359,6 @@ MonoBehaviour:
   moveSpeed: 3.5
   jumpForce: 8
   facingDir: -1
-  facingRight: 1
   groundCheckDistance: 1.4
   whatIsGround:
     serializedVersion: 2
