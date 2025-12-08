@@ -6,7 +6,12 @@ public class Entity : MonoBehaviour
 {
     protected Animator anim;
     protected Rigidbody2D rb;
+    protected Collider2D col;
 
+    [Header("Health")]
+    [SerializeField] private int maxHealth = 1;
+    [SerializeField] private int currentHealth;
+    
     [Header("Attack Details")]
     [SerializeField] protected float attackRadius;
     [SerializeField] protected Transform attackPoint;
@@ -31,6 +36,9 @@ public class Entity : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
+        col = GetComponent<Collider2D>();
+
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -50,13 +58,26 @@ public class Entity : MonoBehaviour
         foreach (Collider2D entity in entityColliders)
         {
             Entity entityTarget = entity.GetComponent<Entity>();
-            //entity.TakeDamage();
+            entityTarget.TakeDamage();
         }
     }
 
     private void TakeDamage()
     {
+        currentHealth = currentHealth - 1;
 
+        if (currentHealth < 0)
+            Die();
+    }
+
+    protected virtual void Die()
+    {
+        anim.enabled = false;
+        col.enabled = false;
+
+        
+        rb.gravityScale = 12;
+        rb.linearVelocity = new Vector2(rb.linearVelocityX, 15);
     }
 
     public void EnableJumpAndMove(bool enable)
