@@ -11,33 +11,27 @@ public class Entity : MonoBehaviour
     protected SpriteRenderer sr;
 
     [Header("Health")]
-    [SerializeField] private int maxHealth = 1;
-    [SerializeField] private int currentHealth;
-    [SerializeField] private Material damageFeedbackMaterial;
-    [SerializeField] private float damageFeedbackDuration = 0.2f;
-    private Coroutine damageFeedbackCoroutine;
+    [SerializeField] protected int maxHealth = 1;
+    [SerializeField] protected int currentHealth;
+    [SerializeField] protected Material damageFeedbackMaterial;
+    [SerializeField] protected float damageFeedbackDuration = 0.2f;
+    protected Coroutine damageFeedbackCoroutine;
     
     [Header("Attack Details")]
     [SerializeField] protected float attackRadius;
     [SerializeField] protected Transform attackPoint;
     [SerializeField] protected LayerMask whatIsTarget;
 
-    [Header("Movement Details")]
-    [SerializeField] protected float moveSpeed = 3.5f;
-    [SerializeField] private float jumpForce = 8;
-    [SerializeField] protected int facingDir = 1;
-    
-    private float xInput;
+    protected int facingDir = 1;
     protected bool facingRight = true;
     [SerializeField] protected bool canMove = true;
-    [SerializeField] private bool canJump;
 
     [Header("Collision Details")]
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private LayerMask whatIsGround;
-    [SerializeField] private bool isGrounded;
+    [SerializeField] protected bool isGrounded;
 
-    private void Awake()
+    protected void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
@@ -51,8 +45,8 @@ public class Entity : MonoBehaviour
     protected virtual void Update()
     {
         HandleCollision();
-        HandleInput();
-        HandleMovement(xInput);
+        //HandleInput();
+        //HandleMovement(xInput);
         HandleAnimations();
         HandleFlip();
     }
@@ -105,11 +99,9 @@ public class Entity : MonoBehaviour
         rb.gravityScale = 12;
         rb.linearVelocity = new Vector2(rb.linearVelocityX, 15);
     }
-
-    public void EnableJumpAndMove(bool enable)
+    public virtual void EnableMovements(bool enable)
     {
         canMove = enable;
-        canJump = enable;
     }
 
     protected virtual void HandleFlip()
@@ -125,12 +117,13 @@ public class Entity : MonoBehaviour
         }
             
     }
-
+    
     protected void Flip()
     {
         transform.Rotate(0, 180, 0);
         facingRight = !facingRight;
         facingDir = facingDir * -1;
+        
     }
 
     protected virtual void HandleAnimations()
@@ -140,16 +133,16 @@ public class Entity : MonoBehaviour
         anim.SetBool("IsGrounded", isGrounded);
     }
 
-    private void HandleInput()
-    {
-        xInput = Input.GetAxisRaw("Horizontal");
+    //private void HandleInput()
+    //{
+    //    xInput = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space))
-            TryToJump();
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //        TryToJump();
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-            HandleAttack();
-    }
+    //    if (Input.GetKeyDown(KeyCode.Mouse0))
+    //        HandleAttack();
+    //}
 
 
     protected virtual void HandleAttack()
@@ -160,18 +153,9 @@ public class Entity : MonoBehaviour
         }
     }
 
-    private void TryToJump()
-    {
-        if(isGrounded && canJump)
-            rb.linearVelocity = new Vector2(rb.linearVelocity.y, jumpForce);
-    }
-
-    protected virtual void HandleMovement(float xDirection)
-    {
-        if (canMove)
-            rb.linearVelocity = new Vector2(xDirection * moveSpeed, rb.linearVelocity.y);
-        else
-            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+    protected virtual void HandleMovement()
+    {   
+        
     }
 
     protected virtual void HandleCollision ()

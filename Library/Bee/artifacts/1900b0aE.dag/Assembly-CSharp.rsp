@@ -448,6 +448,7 @@
 "Assets/Enemy.cs"
 "Assets/Entity.cs"
 "Assets/Entity_AnimationEvents.cs"
+"Assets/Player.cs"
 -langversion:9.0
 /deterministic
 /optimize+

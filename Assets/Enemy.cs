@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class Enemy : Entity 
 {
-    [Header("Some Shit you have to select")]
-    [SerializeField] private Transform player;
     private bool playerDetected;
 
+    [Header("Movement Details")]
+    [SerializeField] private float moveSpeed = 3.5f;
+    [SerializeField] private Transform whatWeFollow;
+    //[SerializeField] private float jumpForce = 8;
 
     protected override void Update()
     {
-        HandleMovement(facingDir);
+        HandleMovement();
         HandleCollision();
         HandleAnimations();
         HandleFlip();
@@ -25,12 +27,12 @@ public class Enemy : Entity
 
     protected override void HandleFlip()
     {
-        if (player.transform.position.x < transform.position.x && facingRight == true)
+        if (whatWeFollow.transform.position.x < transform.position.x && facingRight == true)
         {
             Flip();
         }
         else
-        if (player.transform.position.x > transform.position.x && facingRight == false)
+        if (whatWeFollow.transform.position.x > transform.position.x && facingRight == false)
         {
             Flip();
         }
@@ -45,11 +47,11 @@ public class Enemy : Entity
     {
         anim.SetFloat("xVelocity", rb.linearVelocity.x);
     }
-    //protected override void HandleMovement()
-    //{
-    //    if (canMove)
-    //        rb.linearVelocity = new Vector2(facingDir * moveSpeed, rb.linearVelocity.y);
-    //    else
-    //        rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-    //}
+    protected override void HandleMovement()
+    {
+        if (canMove)
+            rb.linearVelocity = new Vector2(facingDir * moveSpeed, rb.linearVelocity.y);
+        else
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+    }
 }
