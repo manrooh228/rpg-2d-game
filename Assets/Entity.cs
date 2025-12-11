@@ -28,9 +28,9 @@ public class Entity : MonoBehaviour
     [SerializeField] protected int facingDir = 1;
     
     private float xInput;
-    private bool facingRight = true;
-    protected bool canMove = true;
-    private bool canJump;
+    protected bool facingRight = true;
+    [SerializeField] protected bool canMove = true;
+    [SerializeField] private bool canJump;
 
     [Header("Collision Details")]
     [SerializeField] private float groundCheckDistance;
@@ -54,7 +54,7 @@ public class Entity : MonoBehaviour
         HandleInput();
         HandleMovement(xInput);
         HandleAnimations();
-        FlipAnimations();
+        HandleFlip();
     }
     
     public void DamageTargets()
@@ -112,7 +112,7 @@ public class Entity : MonoBehaviour
         canJump = enable;
     }
 
-    protected void FlipAnimations()
+    protected virtual void HandleFlip()
     {
         if (rb.linearVelocityX < 0 && facingRight == true)
         {
@@ -126,7 +126,7 @@ public class Entity : MonoBehaviour
             
     }
 
-    private void Flip()
+    protected void Flip()
     {
         transform.Rotate(0, 180, 0);
         facingRight = !facingRight;

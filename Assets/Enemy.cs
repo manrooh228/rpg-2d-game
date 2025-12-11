@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class Enemy : Entity 
 {
-
+    [SerializeField] private Transform player;
     private bool playerDetected;
+
+
     protected override void Update()
     {
         HandleMovement(facingDir);
         HandleCollision();
         HandleAnimations();
-        FlipAnimations();
+        HandleFlip();
         HandleAttack();
     }
     protected override void HandleAttack()
@@ -17,6 +19,19 @@ public class Enemy : Entity
         if (playerDetected)
         {
             anim.SetTrigger("attack");
+        }
+    }
+
+    protected override void HandleFlip()
+    {
+        if (player.transform.position.x < transform.position.x && facingRight == true)
+        {
+            Flip();
+        }
+        else
+        if (player.transform.position.x > transform.position.x && facingRight == false)
+        {
+            Flip();
         }
     }
 
