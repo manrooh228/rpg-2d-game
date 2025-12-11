@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Enemy : Entity 
 {
+    [Header("Some Shit you have to select")]
     [SerializeField] private Transform player;
     private bool playerDetected;
 

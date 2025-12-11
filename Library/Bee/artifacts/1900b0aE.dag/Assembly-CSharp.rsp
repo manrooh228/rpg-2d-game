@@ -444,6 +444,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.1.13f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.1.13f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.1.13f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
+"Assets/Camera.cs"
 "Assets/Enemy.cs"
 "Assets/Entity.cs"
 "Assets/Entity_AnimationEvents.cs"
