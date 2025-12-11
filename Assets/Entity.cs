@@ -45,8 +45,7 @@ public class Entity : MonoBehaviour
     protected virtual void Update()
     {
         HandleCollision();
-        //HandleInput();
-        //HandleMovement(xInput);
+        HandleMovement();
         HandleAnimations();
         HandleFlip();
     }

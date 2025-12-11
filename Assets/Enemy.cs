@@ -11,12 +11,10 @@ public class Enemy : Entity
 
     protected override void Update()
     {
-        HandleMovement();
-        HandleCollision();
-        HandleAnimations();
-        HandleFlip();
+        base.Update();
         HandleAttack();
     }
+
     protected override void HandleAttack()
     {
         if (playerDetected)
