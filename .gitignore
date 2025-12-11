@@ -85,7 +85,7 @@ InitTestScene*.unity*
 /[Aa]ssets/AddressableAssetsData/link.xml*
 /[Aa]ssets/Addressables_Temp*
 # By default, Addressables content builds will generate addressables_content_state.bin
-# files in platform-specific subfolders, for example:
+# files in platform-specific subfolders, for example:   
 # /Assets/AddressableAssetsData/OSX/addressables_content_state.bin
 /[Aa]ssets/AddressableAssetsData/*/*.bin*
 
