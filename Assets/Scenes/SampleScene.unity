@@ -2173,15 +2173,14 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
-  moveSpeed: 2
-  facingDir: 1
   canMove: 1
   groundCheckDistance: 3
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
   isGrounded: 0
-  player: {fileID: 1475573712}
+  moveSpeed: 2
+  whatWeFollow: {fileID: 0}
 --- !u!4 &1424764569
 Transform:
   m_ObjectHideFlags: 0
@@ -2488,7 +2487,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0.5
   m_AngularDamping: 0.05
-  m_GravityScale: 1.5
+  m_GravityScale: 4
   m_Material: {fileID: 6200000, guid: 00a126a7e9a42fd4082ca02a365a30cd, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2558,15 +2557,14 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
-  moveSpeed: 3.5
-  facingDir: 1
   canMove: 1
   groundCheckDistance: 3
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
   isGrounded: 0
-  jumpForce: 8
+  moveSpeed: 10
+  jumpForce: 20
   canJump: 0
 --- !u!1 &1537173290
 GameObject:
