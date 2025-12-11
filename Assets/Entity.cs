@@ -175,7 +175,7 @@ public class Entity : MonoBehaviour
     }
 
     protected virtual void HandleCollision ()
-    {
+    {   
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
     }
 
@@ -183,6 +183,7 @@ public class Entity : MonoBehaviour
     {
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, -groundCheckDistance));
 
-        Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
+        if(attackPoint != null)
+            Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
     }
 }
