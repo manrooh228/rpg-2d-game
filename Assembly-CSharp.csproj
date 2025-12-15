@@ -66,6 +66,7 @@
     <Compile Include="Assets\Enemy.cs" />
     <Compile Include="Assets\Entity_AnimationEvents.cs" />
     <Compile Include="Assets\Entity.cs" />
+    <Compile Include="Assets\UI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

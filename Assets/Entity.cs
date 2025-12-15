@@ -31,7 +31,7 @@ public class Entity : MonoBehaviour
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] protected bool isGrounded;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();

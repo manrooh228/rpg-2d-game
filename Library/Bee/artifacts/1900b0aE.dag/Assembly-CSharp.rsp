@@ -449,6 +449,7 @@
 "Assets/Entity.cs"
 "Assets/Entity_AnimationEvents.cs"
 "Assets/Player.cs"
+"Assets/UI.cs"
 -langversion:9.0
 /deterministic
 /optimize+

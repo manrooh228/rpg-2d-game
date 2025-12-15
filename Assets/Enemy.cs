@@ -9,6 +9,11 @@ public class Enemy : Entity
     [SerializeField] private Transform whatWeFollow;
     //[SerializeField] private float jumpForce = 8;
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     protected override void Update()
     {
         base.Update();
@@ -25,6 +30,9 @@ public class Enemy : Entity
 
     protected override void HandleFlip()
     {
+        if (whatWeFollow != null)
+            return; 
+
         if (whatWeFollow.transform.position.x < transform.position.x && facingRight == true)
         {
             Flip();
