@@ -2,11 +2,18 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    [SerializeField] protected Animator healthAnim;
     private float xInput;
     [Header("Movement Details")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce;
-    [SerializeField] private bool canJump;
+    [SerializeField] private bool canJump = true;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        healthAnim.SetFloat("health", currentHealth);
+    }
 
     // Update is called once per frame
     protected override void Update()
@@ -16,6 +23,11 @@ public class Player : Entity
         HandleMovement();
         HandleAnimations();
         HandleFlip();
+    }
+    protected override void TakeDamage()
+    {
+        base.TakeDamage();
+        healthAnim.SetFloat("health", currentHealth);
     }
 
     private void HandleInput()

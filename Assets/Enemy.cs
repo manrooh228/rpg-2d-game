@@ -60,4 +60,6 @@ public class Enemy : Entity
         else
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
     }
+
+
 }

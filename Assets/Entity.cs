@@ -61,12 +61,12 @@ public class Entity : MonoBehaviour
         }
     }
 
-    private void TakeDamage()
+    protected virtual void TakeDamage()
     {
         currentHealth = currentHealth - 1;
         PlayDamageFeedback();
 
-        if (currentHealth < 0)
+        if (currentHealth < 1)
             Die();
     }
 
