@@ -22,7 +22,7 @@ public class Entity : MonoBehaviour
     [SerializeField] protected Transform attackPoint;
     [SerializeField] protected LayerMask whatIsTarget;
 
-    protected int facingDir = 1;
+    [SerializeField]protected int facingDir = 1;
     protected bool facingRight = true;
     [SerializeField] protected bool canMove = true;
 

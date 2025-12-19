@@ -2758,6 +2758,7 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
+  facingDir: 1
   canMove: 1
   groundCheckDistance: 3
   whatIsGround:
@@ -2765,7 +2766,7 @@ MonoBehaviour:
     m_Bits: 64
   isGrounded: 0
   moveSpeed: 2
-  whatWeFollow: {fileID: 1475573712}
+  whatWeFollow: {fileID: 0}
 --- !u!4 &1424764569
 Transform:
   m_ObjectHideFlags: 0
@@ -3142,6 +3143,7 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
+  facingDir: 1
   canMove: 1
   groundCheckDistance: 3
   whatIsGround:
@@ -3152,6 +3154,9 @@ MonoBehaviour:
   moveSpeed: 10
   jumpForce: 20
   canJump: 1
+  dashSpeed: 25
+  dashTime: 0.2
+  dashCooldown: 1
 --- !u!1 &1505839966
 GameObject:
   m_ObjectHideFlags: 0
