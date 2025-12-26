@@ -41,6 +41,7 @@ public class Entity : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+
     // Update is called once per frame
     protected virtual void Update()
     {

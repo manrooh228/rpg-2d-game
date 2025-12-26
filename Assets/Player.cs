@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Player : Entity
@@ -18,10 +19,12 @@ public class Player : Entity
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashTime = 0.2f;
     [SerializeField] private float dashCooldown = 1f;
+    [SerializeField] private TrailRenderer tr;
 
 
     protected override void Awake()
     {
+        tr.emitting = false;
         base.Awake();   
         healthAnim.SetFloat("health", currentHealth);
     }
@@ -34,7 +37,7 @@ public class Player : Entity
         HandleMovement();
         HandleAnimations();
         HandleFlip();
-        //Debug.Log(rb.linearVelocityX);
+        
     }
     protected override void TakeDamage()
     {
@@ -66,11 +69,15 @@ public class Player : Entity
             isDashing = true;
             canDash = false;
 
+            tr.emitting = true;
+
             rb.linearVelocity = new Vector2(facingDir * dashSpeed, rb.linearVelocityY);
 
             anim.SetTrigger("dash");
 
             StartCoroutine(DashTime());
+
+            
 
             StartCoroutine(DashCoolDown());
         }
@@ -80,8 +87,9 @@ public class Player : Entity
     {
         yield return new WaitForSeconds(dashTime);
 
-        Debug.Log("Dash Stoped");
+        //Debug.Log("Dash Stoped");
         isDashing = false;
+        tr.emitting = false;
 
     }
 
@@ -90,7 +98,7 @@ public class Player : Entity
         yield return new WaitForSeconds(dashCooldown);
 
         canDash = true;
-        Debug.Log("Cooldown ended");
+        //Debug.Log("Cooldown ended");
     }
 
 
