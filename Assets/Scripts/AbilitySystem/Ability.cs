@@ -36,7 +36,7 @@ namespace Assets.Scripts.AbilitySystem
             EventChangeCooldownTimer?.Invoke(CooldownTimer, CooldownTime);
         }
         public virtual void Added(Entity owner) { }
-        public virtual void StartCast() { }
+        public virtual void StartCast() { Debug.Log("Cast Started"); }
         public virtual bool CheckCondition(Entity owner, Entity target, Vector3 location = default) => false;
         public virtual void ApplyCast() { }
         public virtual void EventTick(float deltaTick) { }

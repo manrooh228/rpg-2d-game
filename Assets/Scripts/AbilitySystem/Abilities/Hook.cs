@@ -9,9 +9,7 @@ namespace Assets.Scripts.AbilitySystem
         [SerializeField] private float hookRange = 10f;
         private void Awake()
         {
-            Title = "Hook";
-            Description = "Hooks players in the range of" + hookRange;
-
+            
         }
     }
 }

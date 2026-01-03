@@ -22,7 +22,7 @@ public class Entity : MonoBehaviour
     [SerializeField] protected Transform attackPoint;
     [SerializeField] protected LayerMask whatIsTarget;
 
-    [SerializeField]protected int facingDir = 1;
+    [SerializeField]protected int facingDir { get; set; } = 1;
     protected bool facingRight = true;
     [SerializeField] protected bool canMove = true;
 
@@ -30,6 +30,13 @@ public class Entity : MonoBehaviour
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] protected bool isGrounded;
+
+    // Getters
+
+    public int GetFacingDir()
+    {
+        return facingDir;
+    }
 
     protected virtual void Awake()
     {
@@ -50,7 +57,7 @@ public class Entity : MonoBehaviour
         HandleAnimations();
         HandleFlip();
     }
-    
+
     public void DamageTargets()
     {
         Collider2D[] entityColliders = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, whatIsTarget);

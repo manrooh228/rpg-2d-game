@@ -1,5 +1,7 @@
+using Assets.Scripts.AbilitySystem;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -21,10 +23,11 @@ public class Player : Entity
     [SerializeField] private float dashCooldown = 1f;
     [SerializeField] private TrailRenderer tr;
 
-    [Header("Abilities")]
-    [SerializeField] 
+    //[Header("Abilities")]
+    //[SerializeField] private List<Ability> abilities;
+    //[SerializeField] private Ability currentAbility;
 
-
+    
     protected override void Awake()
     {
         tr.emitting = false;

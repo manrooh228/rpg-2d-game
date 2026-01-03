@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Services.Locator;
+using JetBrains.Annotations;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,23 +22,25 @@ namespace Assets.Scripts.AbilitySystem
         public void Awake()
         {
             _camera = Camera.main;
-            _playerInput = //inputPlayera
-
+            
             _abilityStorage.Init();
             _abilities.AddRange(_abilityStorage.GetAbilities());
 
+            //_abilitydisplaying.init(_abilitystorage.getabilities());
+            //_abilitydisplaying.onclickability += onclickabilitybutton;
         }
+            
 
         public void Update()
         {
-            for (int i = 0; i < _abilities.Count; i++)
+            for (int i = 0; i < _abilities.Count; ++i)
             {
-                _abilities[i].EventTick(Time.deltaTime);    
-            }
+                _abilities[i].EventTick(Time.deltaTime);
 
-            if(_currentAbility != null)
-            {
-
+                if (Input.GetKeyDown(_abilities[i].HotKey))
+                {
+                    OnClickAbilityButton(i);
+                }
             }
         }
 
@@ -58,9 +63,7 @@ namespace Assets.Scripts.AbilitySystem
             }
         }
 
-
-
-      
+        
     }
 
 }
