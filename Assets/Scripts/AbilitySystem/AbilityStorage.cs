@@ -22,7 +22,7 @@ namespace Assets.Scripts.AbilitySystem
                 builder.Make();
                 var ability = builder.GetResult();
 
-                ability.Added(_owner);
+                ability.Added(_owner); //25
                 _abilities.Add(ability);
             }
         }

@@ -444,7 +444,9 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.1.13f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.1.13f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.1.13f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
-"Assets/Scripts/AbilitySystem/Abilities/Hook.cs"
+"Assets/Scripts/AbilitySystem/Abilities/TestAbility.cs"
+"Assets/Scripts/AbilitySystem/Abilities/TestBuilder.cs"
+"Assets/Scripts/AbilitySystem/Abilities/TestConfig.cs"
 "Assets/Scripts/AbilitySystem/Ability.cs"
 "Assets/Scripts/AbilitySystem/AbilityBuilder.cs"
 "Assets/Scripts/AbilitySystem/AbilityCastHandler.cs"
@@ -458,6 +460,9 @@
 "Assets/Scripts/SceneScripts/CameraScript.cs"
 "Assets/Scripts/SceneScripts/health4.cs"
 "Assets/Scripts/SceneScripts/UI.cs"
+"Assets/Scripts/Services/Locator/IInjectServices.cs"
+"Assets/Scripts/Services/Locator/IServiceLocator.cs"
+"Assets/Scripts/Services/Locator/ServiceLocator.cs"
 -langversion:9.0
 /deterministic
 /optimize+

@@ -9,8 +9,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{BDA693C4-BE28-02D1-8A3F-545190531A41}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -64,21 +63,23 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AbilitySystem\AbilityConfig.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity.cs" />
-    <Compile Include="Assets\Scripts\AbilitySystem\Abilities\Hook.cs" />
+    <Compile Include="Assets\Scripts\Services\Locator\IServiceLocator.cs" />
+    <Compile Include="Assets\Scripts\AbilitySystem\Abilities\TestBuilder.cs" />
     <Compile Include="Assets\Scripts\Entities\Player.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity_AnimationEvents.cs" />
+    <Compile Include="Assets\Scripts\AbilitySystem\Abilities\TestAbility.cs" />
     <Compile Include="Assets\Scripts\AbilitySystem\EAbilityStatus.cs" />
+    <Compile Include="Assets\Scripts\Services\Locator\ServiceLocator.cs" />
+    <Compile Include="Assets\Scripts\AbilitySystem\Abilities\TestConfig.cs" />
     <Compile Include="Assets\Scripts\AbilitySystem\AbilityBuilder.cs" />
     <Compile Include="Assets\Scripts\AbilitySystem\AbilityStorage.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Services\Locator\IInjectServices.cs" />
     <Compile Include="Assets\Scripts\AbilitySystem\AbilityCastHandler.cs" />
     <Compile Include="Assets\Scripts\AbilitySystem\Ability.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\UI.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\health4.cs" />
-    <Compile Include="Assets\Scripts\Services\Locator\IInjectServices.cs" />
-    <Compile Include="Assets\Scripts\Services\Locator\IServiceLocator.cs" />
-    <Compile Include="Assets\Scripts\Services\Locator\ServiceLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -1326,7 +1327,8 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
