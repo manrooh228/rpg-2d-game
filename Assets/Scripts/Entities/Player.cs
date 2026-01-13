@@ -53,6 +53,7 @@ public class Player : Entity
 
     private void HandleInput()
     {
+        
         xInput = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetKeyDown(KeyCode.X))
@@ -64,6 +65,7 @@ public class Player : Entity
         if (Input.GetKeyDown(KeyCode.Mouse0))
             HandleAttack();
     }
+
 
     private void HandleDash()
     {

@@ -460,6 +460,7 @@
 "Assets/Scripts/SceneScripts/CameraScript.cs"
 "Assets/Scripts/SceneScripts/health4.cs"
 "Assets/Scripts/SceneScripts/UI.cs"
+"Assets/Scripts/Services/HandlePauseMenu.cs"
 "Assets/Scripts/Services/Locator/IInjectServices.cs"
 "Assets/Scripts/Services/Locator/IServiceLocator.cs"
 "Assets/Scripts/Services/Locator/ServiceLocator.cs"
