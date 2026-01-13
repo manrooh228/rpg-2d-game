@@ -64,7 +64,7 @@ namespace Assets.Scripts.AbilitySystem
                 // Проверяем условия (хватает ли дистанции и т.д.)
                 if (_currentAbility.CheckCondition(_ownerActor, target, castLocation))
                 {   
-                    if(target != null)
+                    if(target == null)
                     {
                         Debug.Log("target not found");
                     }
